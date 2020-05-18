@@ -5,25 +5,7 @@
 <type><![CDATA[sql]]></type>
 <pagination><![CDATA[0]]></pagination>
 <components>
-	<![CDATA[
-		SELECT  
-			 DISTINCT u.username, CONCAT( u.firstname, ' ', u.lastname ) AS NAME,
-			 ic.shortname AS "Course Code",
-			 CONCAT('%%WWWROOT%%/user/view.php%%Q%%id=', u.id, '&course=', ic.id) AS "Link course"
-		FROM
-			 prefix_course ic
-			 JOIN prefix_context con ON con.instanceid = ic.id
-			 JOIN prefix_role_assignments ra ON con.id = ra.contextid AND con.contextlevel = 50
-			 JOIN prefix_role r ON ra.roleid = r.id
-			 JOIN prefix_user u ON u.id = ra.userid
-			 LEFT JOIN prefix_groups_members gm ON u.id = gm.userid
-		WHERE
-			 ic.visible = 1
-			 AND gm.userid IS NULL
-			 AND r.id NOT IN (3,4)
-			 AND ic.id =  %%COURSEID%%
-		ORDER BY ic.shortname
-	]]>
+	<![CDATA[YTo0OntzOjk6ImN1c3RvbXNxbCI7YToxOntzOjY6ImNvbmZpZyI7Tzo4OiJzdGRDbGFzcyI6Njp7czo4OiJxdWVyeXNxbCI7czo4NDU6IlNFTEVDVCsrJTBEJTBBKysrKytESVNUSU5DVCt1LnVzZXJuYW1lJTJDK0NPTkNBVCUyOCt1LmZpcnN0bmFtZSUyQyslMjcrJTI3JTJDK3UubGFzdG5hbWUrJTI5K0FTK05BTUUlMkMlMEQlMEErKysrK2ljLnNob3J0bmFtZStBUyslMjJDb3Vyc2UrQ29kZSUyMiUyQyUwRCUwQSsrKysrQ09OQ0FUJTI4JTI3JTI1JTI1V1dXUk9PVCUyNSUyNSUyRnVzZXIlMkZ2aWV3LnBocCUyNSUyNVElMjUlMjVpZCUzRCUyNyUyQyt1LmlkJTJDKyUyNyUyNmNvdXJzZSUzRCUyNyUyQytpYy5pZCUyOStBUyslMjJMaW5rK2NvdXJzZSUyMiUwRCUwQUZST00lMEQlMEErKysrK3ByZWZpeF9jb3Vyc2UraWMlMEQlMEErKysrK0pPSU4rcHJlZml4X2NvbnRleHQrY29uK09OK2Nvbi5pbnN0YW5jZWlkKyUzRCtpYy5pZCUwRCUwQSsrKysrSk9JTitwcmVmaXhfcm9sZV9hc3NpZ25tZW50cytyYStPTitjb24uaWQrJTNEK3JhLmNvbnRleHRpZCtBTkQrY29uLmNvbnRleHRsZXZlbCslM0QrNTAlMEQlMEErKysrK0pPSU4rcHJlZml4X3JvbGUrcitPTityYS5yb2xlaWQrJTNEK3IuaWQlMEQlMEErKysrK0pPSU4rcHJlZml4X3VzZXIrdStPTit1LmlkKyUzRCtyYS51c2VyaWQlMEQlMEErKysrK0xFRlQrSk9JTitwcmVmaXhfZ3JvdXBzX21lbWJlcnMrZ20rT04rdS5pZCslM0QrZ20udXNlcmlkJTBEJTBBV0hFUkUlMEQlMEErKysrK2ljLnZpc2libGUrJTNEKzElMEQlMEErKysrK0FORCtnbS51c2VyaWQrSVMrTlVMTCUwRCUwQSsrKysrQU5EK3IuaWQrTk9UK0lOKyUyODMlMkM0JTI5JTBEJTBBJTA5K0FORCtpYy5pZCslM0QrKyUyNSUyNUNPVVJTRUlEJTI1JTI1JTBEJTBBT1JERVIrQlkraWMuc2hvcnRuYW1lJTBEJTBBIjtzOjg6ImNvdXJzZWlkIjtpOjE7czoxMjoic3VibWl0YnV0dG9uIjtzOjEyOiJTYXZlK2NoYW5nZXMiO3M6MTY6InJlcG9ydGNhdGVnb3JpZXMiO3M6NToidXNlcnMiO3M6MTc6InJlcG9ydHNpbmNhdGVnb3J5IjtzOjY6ImNvdXJzZSI7czoxNDoicmVtb3RlcXVlcnlzcWwiO3M6MDoiIjt9fXM6NDoicGxvdCI7YToxOntzOjg6ImVsZW1lbnRzIjthOjA6e319czo3OiJmaWx0ZXJzIjthOjE6e3M6ODoiZWxlbWVudHMiO2E6MDp7fX1zOjExOiJwZXJtaXNzaW9ucyI7YToxOntzOjY6ImNvbmZpZyI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMzoiY29uZGl0aW9uZXhwciI7czowOiIiO319fQ==]]>
 </components>
 <export><![CDATA[ods,xls,csv,]]></export>
 <jsordering><![CDATA[1]]></jsordering>
